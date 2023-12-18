@@ -1,0 +1,51 @@
+﻿<Window x:Class="MVVM_final_project.View.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM_final_project.View"
+        xmlns:VMviewmodel ="clr-namespace:MVVM_final_project.ViewModel" xmlns:d1="http://schemas.microsoft.com/netfx/2009/xaml/presentation" xmlns:d2="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800"
+        DataContext="VMViewModel"
+        xmlns:i ="http://schemas.microsoft.com/xaml/behaviors">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <Grid DataContext="{StaticResource ViewModel}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock>
+            <Grid Width="480">
+                <Label Height="50" Margin="135,10,28,0" Foreground="SlateBlue" FontSize="25" VerticalAlignment="Top" Content="{Binding _Selcetedemployee.Name}"  />
+                <Label Height="50" Margin="135,80,28,0" Foreground="SlateBlue" FontSize="25" VerticalAlignment="Top"  Content="{Binding _Selcetedemployee.ID}"/>
+                <Label Height="50" Margin="135,155,28,0" Foreground="SlateBlue" FontSize="25"  VerticalAlignment="Top" Content="{Binding _Selcetedemployee.Salary}"/>
+                <Label Height="50" Width="auto" Content="Name" FontSize="25" Margin="30,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" ></Label>
+                <Label Height="50" Width="auto" Content="ID" FontSize="25" Margin="30,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Label Height="50" Width="auto" Content="Salary" FontSize="25" Margin="30,155,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Label Height="50" Width="auto" Content="Image" FontSize="25" Margin="30,231,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Image Source="{Binding _Selcetedemployee.Image}" Margin="140,247,48,0" Height="153" VerticalAlignment="Top"/>
+                
+            </Grid>
+        </TextBlock>
+
+        <ListBox  SelectedItem="{Binding _Selcetedemployee}" Grid.Column="1" Name="ListBoxEmployee" ItemsSource="{Binding Employees}" Margin="10,10,10,144">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Name ="name" Content="{Binding Name}"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Column="1" Margin="50,311,50,34" Content="Adding Or Editing EMP">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding AddingNewEmp}" ></i:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+    </Grid>
+</Window>

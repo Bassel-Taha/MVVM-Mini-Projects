@@ -1,0 +1,28 @@
+﻿<Window x:Class="MVVM_final_project.View.AddEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM_final_project.View"
+        xmlns:i ="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="AddEmployee" Height="450" Width="800"
+        DataContext="{StaticResource addVM}">
+    <Grid DataContext="{Binding _newemployee   }">
+        <TextBox Height="50" Margin="135,10,28,0" VerticalAlignment="Top" Text="{Binding Name }"/>
+        <TextBox Height="50" Margin="135,80,28,0" VerticalAlignment="Top"  Text="{Binding ID }"/>
+        <TextBox Height="50" Margin="135,155,28,0" VerticalAlignment="Top" Text="{Binding Salary }"/>
+        <Label  Height="50" Width="auto" Content="Name" FontSize="25" Margin="30,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Height="50" Width="auto"  Content="ID" FontSize="25" Margin="30,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Height="50" Width="auto"  Content="Salary" FontSize="25" Margin="30,155,694,0" VerticalAlignment="Top" />
+        <Label Height="50" Width="auto"  Content="Image" FontSize="25" Margin="30,231,691,0" VerticalAlignment="Top" />
+        <Button Name="AddBt" FontSize="25" FontWeight="DemiBold" Content ="ADD" Margin="325,336,325,0" Height="60" VerticalAlignment="Top">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding addemployee}" ></i:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
+    </Grid>
+</Window>

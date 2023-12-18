@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Model\images\burger.jpg" />
+    <None Remove="Model\images\frenchfries.jpg" />
+    <None Remove="Model\images\pasta.jpg" />
+    <None Remove="Model\images\pizza.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Model\images\burger.jpg" />
+    <Resource Include="Model\images\frenchfries.jpg" />
+    <Resource Include="Model\images\pasta.jpg" />
+    <Resource Include="Model\images\pizza.jpg" />
+  </ItemGroup>
+
+</Project>
